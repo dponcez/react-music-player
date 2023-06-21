@@ -1,0 +1,128 @@
+@import '_variables';
+
+.figure {
+  margin-block: 1rem;
+  margin-inline: auto;
+  .image--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    min-height: fit-content;
+    padding-block-end: 1rem;
+    overflow: hidden;
+
+    .image {
+      max-width: 18rem;
+      height: 18rem;
+      border-radius: $radius;
+    }
+  }
+
+  .player--container {
+    width: $size;
+    height: 5rem;
+    max-width: 20rem;
+    padding-inline: 1rem;
+    border-radius: $radius;
+    background-image: linear-gradient(
+      45deg,
+      $dark-blue,
+      $dark-color
+    );
+
+    .control--panel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: $radius;
+      place-items: center;
+      width: $size;
+
+      .progress {
+        width: $size;
+        grid-row: 1;
+        grid-column: 1 / -1;
+        &--bar { width: $size; }
+      }
+
+      .volume--container,
+      .player--controls,
+      .timer--container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $size
+      }
+
+      .volume--container {
+        display: none;
+        .slider { width: 5rem }
+      }
+
+      .controls {
+        grid-column: 2 / 4;
+        .controllers {
+          width: $size;
+          .player--controls {
+            justify-content: space-between;
+            width: 8rem;
+            .prev,
+            .next { font-size: 1.125rem; }
+            .play { font-size: calc($padding * 1.5); }
+          }
+        }
+      }
+
+      .timer--container {
+        .timer { font-family: $font-play; }
+      }
+    }
+  }
+  
+  .figcaption {
+    width: $size;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    margin-block-start: .25rem;
+
+    .info {
+      margin-block: calc($radius * .35);
+      margin-inline-start: 0;
+      text-transform: capitalize;
+      letter-spacing: .05rem;
+    }
+
+    .name--song {
+      font-size: calc($fnt-sz * .845);
+      font-family: $font-play;
+      font-weight: 700;
+    }
+
+    .name--artist {
+      font-size: .85rem;
+      font-family: $font-inter;
+      font-weight: 400;
+    }
+  }
+}
+
+#light .player--container {
+  background-image: linear-gradient(
+    45deg,
+    $dark-red-color,
+    $dark-orange-color
+  )
+}
+
+#light .player--container,
+#light .image {
+  box-shadow: .2vmin .25vmin .15rem rgba($dark-color, .45);
+}
+
+#dark .player--container,
+#dark .image {
+  box-shadow: .2vmin .25vmin .15rem rgba($light-gray, .45);
+}
+
+#light .static--color { color: var(--light-color); }
