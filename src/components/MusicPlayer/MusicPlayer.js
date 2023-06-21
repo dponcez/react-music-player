@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import axios from 'axios';
 import { formatTime } from "../../utils/formatTime";
 import { Volume } from "../Volume/Volume";
 import { Controls } from "../Controls/Controls";
@@ -11,16 +10,17 @@ import { PauseButton } from "../PauseButton/PauseButton";
 import { ChevronRightButton } from "../ChevronRightButton/ChevronRightButton";
 import { ChevronLeftButton } from "../chevronLeftButton/ChevronLeftButton";
 import source from '../../assets/audio/Regulate.mp3';
-import image from '../../assets/images/regulate.jpg'
+import image from '../../assets/images/regulate.jpg';
+import '../../styles/MusicPlayer.scss';
 
 const MusicPlayer = () => {
-  const audioRef = useRef(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
-  const [progress, setProgress] = useState(0)
-  const [volume, setVolume] = useState(10)
-  const [duration, setDuration] = useState(0)
-  const [mediaTime, setMediaTime] = useState(0)
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(10);
+  const [duration, setDuration] = useState(0);
+  const [mediaTime, setMediaTime] = useState(0);
 
   useEffect(() => {
     const audioElement = audioRef.current;
@@ -29,7 +29,7 @@ const MusicPlayer = () => {
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
     const onMute = () => setIsMuted(true);
-    const onUnMute = () => setIsMuted(false)
+    const onUnMute = () => setIsMuted(false);
 
     audioElement.addEventListener('play', onPlay);
     audioElement.addEventListener('playing', onPlay);
@@ -90,66 +90,64 @@ const MusicPlayer = () => {
       - current time
   */
   return (
-    <>
+    <figure className="figure">
       <div className="image--container">
         <img className="image" src={image} alt="cover"/>
       </div>
-      <figure className="figure">
-        <div className="music--player">
-          <audio
-            src={source}
-            loop={false}
-            ref={audioRef}
-            onTimeUpdate={handleTimeUpdate}
-          ></audio>
-          <section className="control--panel">
-            {/* progress */}
-            <ProgressBar
-              className="progress--bar"
-              value={progress}
-              onChange={handleProgress}
-            />
-            {/* volume */}
-            <Volume
-              max="100"
-              value={volume}
-              state={isMuted ? <SoundOff /> : <SoundOn />}
-              onClick={handleToggleMute}
-              onChange={handleVolumeChange}
-            />
-            {/* counter / duration */}
-            <div className="timer--container duration">
-              <span className="timer">
-                {formatTime(duration)}
-              </span>
-            </div>
-            {/* controls */}
-            <div className="controls">
-              <div className="controllers" role="control player container">
-                <div className="player--controls">
-                  <ChevronLeftButton  />
-                  <Controls
-                    state={isPlaying ? <PauseButton /> : <PlayButton />}
-                    onClick={handleTogglePlay}
-                  />
-                  <ChevronRightButton  />
-                </div>
+      <div className="player--container">
+        <audio
+          src={source}
+          loop={false}
+          ref={audioRef}
+          onTimeUpdate={handleTimeUpdate}
+        ></audio>
+        <section className="control--panel">
+          {/* progress */}
+          <ProgressBar
+            className="progress--bar"
+            value={progress}
+            onChange={handleProgress}
+          />
+          {/* volume */}
+          <Volume
+            max="100"
+            value={volume}
+            state={isMuted ? <SoundOff /> : <SoundOn />}
+            onClick={handleToggleMute}
+            onChange={handleVolumeChange}
+          />
+          {/* counter / duration */}
+          <div className="timer--container duration">
+            <span className="static--color timer">
+              {formatTime(duration)}
+            </span>
+          </div>
+          {/* controls */}
+          <div className="controls">
+            <div className="controllers" role="control player container">
+              <div className="player--controls">
+                <ChevronLeftButton  />
+                <Controls
+                  state={isPlaying ? <PauseButton /> : <PlayButton />}
+                  onClick={handleTogglePlay}
+                />
+                <ChevronRightButton  />
               </div>
             </div>
-            {/* counter / current time */}
-            <div className="timer--container current--time">
-              <span className="timer">
-                {formatTime(mediaTime)}
-              </span>
-            </div>
-          </section>
-        </div>
-        <figcaption className="figcaption">
-          <p className="info name--song">regulate</p>
-          <p className="info name--artist">warren g ft. nate dogg</p>
-        </figcaption>
-      </figure>
-    </>
+          </div>
+          {/* counter / current time */}
+          <div className="timer--container current--time">
+            <span className="static--color timer">
+              {formatTime(mediaTime)}
+            </span>
+          </div>
+        </section>
+      </div>
+      <figcaption className="figcaption">
+        <p className="info name--song">regulate</p>
+        <p className="info name--artist">warren g ft. nate dogg</p>
+      </figcaption>
+    </figure>
   );
 };
 

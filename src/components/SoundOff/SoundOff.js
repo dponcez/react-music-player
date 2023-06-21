@@ -1,12 +1,12 @@
-import React from 'react'
-import { ReactSVG } from "react-svg";
-import soundOff from "../../assets/icons/sound-off.svg"
+import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVolumeOff } from "@fortawesome/free-solid-svg-icons";
 
 const SoundOff = () => {
   return (
     <>
-      <ReactSVG
-        src={soundOff}
+      <FontAwesomeIcon
+        src={faVolumeOff}
         aria-label="icon sound off"
         role="icon"
         aria-describedby="icon sound off"

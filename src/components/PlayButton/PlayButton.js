@@ -1,12 +1,12 @@
-import React from 'react'
-import { ReactSVG } from "react-svg";
-import playIcon from '../../assets/icons/play-btn.svg'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 
 const PlayButton = () => {
   return (
     <>
-      <ReactSVG 
-        src={playIcon}
+      <FontAwesomeIcon 
+        icon={faPlayCircle}
         aria-label="icon play"
         role="icon"
         aria-describedby="icon play"/>

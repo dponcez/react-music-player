@@ -1,18 +1,18 @@
-import React from 'react'
-import { ReactSVG } from 'react-svg'
-import backwardButton from "../../assets/icons/backward-btn.svg";
+import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const ChevronLeftButton = ({onClick}) => {
   return (
     <>
       <button
-        className="prev btn btn--medium fa-backward"
+        className="static--color prev btn btn--medium fa-backward"
         data-next="prev"
         title="Previous"
         aria-describedby="previous button"
         onClick={onClick}
       >
-        <ReactSVG src={backwardButton}/>
+        <FontAwesomeIcon icon={faChevronLeft}/>
       </button>
     </>
   );

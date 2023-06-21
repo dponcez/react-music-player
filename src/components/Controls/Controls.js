@@ -5,7 +5,7 @@ const Controls = ({state, onClick}) => {
   return (
     <>
       <ControlButton
-        className="play btn btn--large"
+        className="static--color play btn btn--large"
         data-play="play"
         title="Play / Pause"
         aria-describedby="play button"

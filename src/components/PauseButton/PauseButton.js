@@ -1,12 +1,12 @@
-import React from 'react'
-import { ReactSVG } from 'react-svg'
-import pauseIcon from '../../assets/icons/pause-btn.svg'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPauseCircle } from '@fortawesome/free-solid-svg-icons';
 
 const PauseButton = () => {
   return (
     <>
-      <ReactSVG 
-        src={pauseIcon} 
+      <FontAwesomeIcon
+        icon={faPauseCircle}
         aria-label="icon pause"
         role="icon"
         aria-describedby="icon pause"/>
