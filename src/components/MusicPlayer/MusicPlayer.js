@@ -45,7 +45,7 @@ const MusicPlayer = () => {
       audioElement.removeEventListener('unmute', onUnMute);
     }
 
-  }, [audioRef.current, progress])
+  }, [audioRef.current, progress]);
 
   // create toggle play function
   const handleTogglePlay = () => {
