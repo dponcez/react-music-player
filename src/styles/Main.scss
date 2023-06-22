@@ -60,6 +60,10 @@
   .nav--container {
     grid-row: 1;
     grid-column: 1;
+
+    @media screen and (min-width: 46.1875em) {
+      & { justify-content: flex-start; }
+    }
   }
 
   .figure {

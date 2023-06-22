@@ -78,6 +78,19 @@
         .timer { font-family: $font-play; }
       }
     }
+
+    @media screen and (min-width: 46.1875em) {
+      & {
+        min-width: 30rem;
+        .control--panel {
+          .volume--container { 
+            display: flex;
+            .btn--medium { font-size: 1.125rem; }
+          }
+          .controls { grid-column: 3; }
+        }
+      }
+    }
   }
   
   .figcaption {
