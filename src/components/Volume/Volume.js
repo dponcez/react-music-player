@@ -5,7 +5,7 @@ const Volume = ({max, value, state, onClick, onChange}) => {
   return (
     <div className="volume--container" role="volume and slider container">
       <ControlButton
-        className="mute--btn btn btn--medium"
+        className="static--color mute--btn btn btn--medium"
         data-mute="mute"
         title="Mute Sound"
         aria-describedby="mute button"
