@@ -79,7 +79,7 @@
       }
     }
 
-    @media screen and (min-width: 46.1875em) {
+    @media (46.1875em <= width) {
       & {
         min-width: 30rem;
         .control--panel {

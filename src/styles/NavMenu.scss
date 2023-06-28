@@ -84,7 +84,7 @@
     #dark &__link,
     #light &__link { color: var(--light-color); }
 
-    @media screen and (min-width: 46.1875em) {
+    @media (46.1875em <= width) {
       & {
         #light &__list:last-child {
           background-color: $dark-blue;
@@ -96,7 +96,7 @@
     }
   }
 
-  @media screen and (min-width: 46.1875em) {
+  @media (46.1875em <= width) {
     & {
       width: auto;
       height: auto;
@@ -128,7 +128,7 @@
     color: var(--light-color)
   }
 
-  @media screen and (min-width: 46.1875em) {
+  @media (46.1875em <= width) {
     & {
       background-image: none;
       box-shadow: none;
